@@ -9,3 +9,11 @@ plugins:
             - en
             - ja
         separator: '[\s\-\.]+'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/xie-dd/mkdocs'
+    - type: '博客'
+      link: 'https://19970622.xyz'
+

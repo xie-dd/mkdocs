@@ -52,7 +52,7 @@ for fil_ii in src_files:
     fil_md_gen = os.path.splitext(fil_md_gen)[0]+'.md'
     with open(fil_md_gen, 'w', encoding='utf-8') as file:
         file.writelines(md_content)
-    print(f"已经生成文档: {fil_md_gen}")
+    print(f"gen doc: {fil_md_gen}")
 
 
 
