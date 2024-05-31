@@ -1,5 +1,5 @@
 function c = add(a,b)
-% ## function
+% ## Function
 % 计算两个数的和
 % 
 % ## Args
