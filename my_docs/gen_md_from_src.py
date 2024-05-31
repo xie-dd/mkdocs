@@ -5,15 +5,25 @@
 # @Purpose   : 从代码的注释中获得文档
 
 import os
+import shutil
+
+
 current_dir = os.path.abspath(os.path.dirname(__file__))
 proj_dir = os.path.abspath(os.path.join(current_dir, ".."))
 src_path = os.path.join(proj_dir, "src")
 gen_md_path = os.path.join(current_dir, "docs","API")
 
-print(current_dir)
-print(proj_dir)
-print(src_path)
-print(gen_md_path)
+# print(current_dir)
+# print(proj_dir)
+# print(src_path)
+# print(gen_md_path)
+
+
+# 删除原来的注释文档
+if os.path.exists(gen_md_path):
+    shutil.rmtree(gen_md_path)
+os.makedirs(gen_md_path)
+
 
 # 获得一个文件夹下的所有文件
 src_files = []
@@ -32,7 +42,14 @@ def gen_md_from_src(file):
     
     for ii in lines:
         tmp = ii.strip()
-        if len(tmp)>=8 and tmp[0:8]=="function" or tmp[0:3]=="def":
+        # 识别注释的逻辑是: 找到函数所在的行, 再找到下面第一个非注释的行，之间的为函数注释
+        # Python: def
+        # Matlab: function
+        # Fortran: function, subroutine
+        flag_1 = len(tmp)>=8 and tmp[0:8].lower()=="function"
+        flag_2 = len(tmp)>=8 and tmp[0:3].lower()=="def"
+        flag_3 = len(tmp)>=8 and tmp[0:10].lower()=="subroutine"
+        if flag_1 or flag_2 or flag_3:
             ben_flag = 1
             continue
         if ben_flag==1 and len(tmp)>=1 and tmp[0].isalpha():
@@ -53,8 +70,4 @@ for fil_ii in src_files:
     with open(fil_md_gen, 'w', encoding='utf-8') as file:
         file.writelines(md_content)
     print(f"gen doc: {fil_md_gen}")
-
-
-
-
 
