@@ -1,0 +1,11 @@
+site_name: Xdd的帮助系统
+theme:
+  name: material
+  palette:
+    primary: 'green'
+plugins:
+    - search:
+        lang:
+            - en
+            - ja
+        separator: '[\s\-\.]+'
