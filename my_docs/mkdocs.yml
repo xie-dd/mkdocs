@@ -12,18 +12,15 @@ plugins:
     - search:
         separator: '[\s\-\.]+'
 
-# extra:
-#   # social:
-#   #   - icon: fontawesome/solid/paper-plane
-#   #     link: mailto:xdd2026@qq.com
-#   generator: false
+extra:
+  generator: false
 
 
-# markdown_extensions:
-#   - meta                  # 元数据
-#   - pymdownx.arithmatex:  # 数学公式
-#       generic: true  
-#   - pymdownx.highlight    # 代码高亮
+markdown_extensions:
+  - meta                  # 元数据
+  - pymdownx.arithmatex:  # 数学公式
+      generic: true  
+  - pymdownx.highlight    # 代码高亮
 
-# repo_url: https://github.com/xie-dd/mkdocs
-# copyright: Copyright &copy; xie-dd
+repo_url: https://github.com/xie-dd/mkdocs
+copyright: Copyright &copy; xie-dd
