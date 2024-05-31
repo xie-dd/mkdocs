@@ -115,8 +115,7 @@ if __name__ == "__main__":
             name_1 = os.path.splitext(os.path.basename(fil_ii))[0]
             for key, value in md.items():
                 os.path.splitext(os.path.basename(fil_ii))
-                # fil_md_gen = os.path.join(gen_md_path, name_1 + '.' + key) + '.md'
-                fil_md_gen = os.path.join(gen_md_path, key) + '.md'
+                fil_md_gen = os.path.join(gen_md_path, name_1 + '.' + key) + '.md'
                 with open(fil_md_gen, 'w', encoding='utf-8') as file:
                     file.writelines(value)
                 print(f"gen doc: {fil_md_gen}")
