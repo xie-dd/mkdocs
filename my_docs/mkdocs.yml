@@ -10,9 +10,15 @@ theme:
 
 plugins:
     - search:
+        lang:
+            - en
+            - ja
         separator: '[\s\-\.]+'
 
 extra:
+  # social:
+  #   - icon: fontawesome/solid/paper-plane
+  #     link: mailto:xdd2026@qq.com
   generator: false
 
 
