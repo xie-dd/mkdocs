@@ -105,7 +105,7 @@ if __name__ == "__main__":
         os.makedirs(gen_md_path)
  
     # 获得脚本地址
-    language = "python"
+    language = "matlab"
     src_files = get_src_file(src_path, language)
     print(src_files)
 

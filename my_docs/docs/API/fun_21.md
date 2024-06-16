@@ -1,4 +1,4 @@
-## Function02
+## Function
 计算两个数的和
 
 ## Args
