@@ -23,3 +23,8 @@ def fun_3(a,b):
 #     - c: 两个数的和
 
 	c = a+b;
+
+def fun_4(a,b):
+
+
+	c = a+b;
