@@ -10,10 +10,7 @@ theme:
 
 plugins:
     - search:
-        lang:
-            - en
-            - ja
-        separator: '[\s\-\.]+'
+        separator: '[\s\u200b\-]'
 
 extra:
   # social:
@@ -30,3 +27,4 @@ markdown_extensions:
 
 repo_url: https://github.com/xie-dd/mkdocs
 copyright: Copyright &copy; xie-dd
+use_directory_urls: false

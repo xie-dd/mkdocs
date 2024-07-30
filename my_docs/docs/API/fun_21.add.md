@@ -1,3 +1,7 @@
+---
+title: fun_21.add
+---
+
 ## Function
 计算两个数的和
 

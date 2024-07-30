@@ -131,7 +131,18 @@ def gen_md_from_matlab_src(file):
                 break
             elif tmp != '':
                 src_content.append(tmp[1:].strip() + '\n')
+
+        # 处理注释最后一行是空白或者注释的情况
         if not src_content == []:
+            while True:
+                tmp = src_content[-1].strip()
+                if tmp == '' or tmp[0] == '%':
+                    src_content.pop()
+                else:
+                    break
+            assert src_content[-1][0] != '%'
+            assert len(src_content)>0
+
             md[fun_name[index]] = src_content
 
     return md
@@ -158,8 +169,9 @@ if __name__ == "__main__":
     src_files = get_src_file(src_path, language)
     print(src_files)
 
-    # 获得脚本文件的注释内容
+    
     for fil_ii in src_files:
+        # 获得脚本文件的注释内容
         if language == "matlab":
             md_dict = gen_md_from_matlab_src(fil_ii)
         elif language == "python":
@@ -167,11 +179,14 @@ if __name__ == "__main__":
         else:
             pass
 
+        # 将注释内容写入md文档
         filName = os.path.splitext(os.path.basename(fil_ii))[0]
         for fun_name, fun_md in md_dict.items():
             os.path.splitext(os.path.basename(fil_ii))
             fil_md_gen = os.path.join(gen_md_path, filName + '.' + fun_name) + '.md'
             with open(fil_md_gen, 'w', encoding='utf-8') as file:
+                meta = f'---\ntitle: {filName}.{fun_name}\n---\n\n'
+                file.writelines(meta)
                 file.writelines(fun_md)
             print(f"gen doc: {fil_md_gen}")
 
