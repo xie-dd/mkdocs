@@ -1,6 +1,7 @@
 site_name: Xdd的帮助系统
 theme:
   name: material
+  # logo: assets/logo.png
   palette:
     primary: 'Blue'
   icon:
@@ -27,4 +28,20 @@ markdown_extensions:
 
 repo_url: https://github.com/xie-dd/mkdocs
 copyright: Copyright &copy; xie-dd
-use_directory_urls: false
+use_directory_urls: true # 
+
+
+# 以下是侧边栏的配置，其它配置请写在上面
+nav:
+    - Home: 'index.md'
+    - B:
+        - B1: 'writing-your-docs.md'
+        - B2: 'styling-your-docs.md'
+    - C:
+        - C1: 'license.md'
+        - C2: 'release-notes.md'
+    - API:
+        - 'A-A.A2': 'API/A-A.A2'
+        - 'A-A.A3': 'API/A-A.A3'
+
+
